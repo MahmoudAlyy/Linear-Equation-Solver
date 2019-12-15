@@ -1,0 +1,14 @@
+3
+Gaussian-elimination
+2*a + b + 4*c - 1
+a   + 2*b + 3*c - 1.5
+4*a  -1*b + 2*c - 2
+
+
+
+4
+Gaussian-elimination
+4*a + 6*b + 2*c - 2*d - 8
+2*a + 0*b + 5*c - 2*d - 4
+-4*a - 3*b -5*c + 4*d - 1
+8*a +18*b -2*c + 3*d  -40
