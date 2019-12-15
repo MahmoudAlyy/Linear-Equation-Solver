@@ -1,14 +1,19 @@
 3
 Gaussian-elimination
+a + 4*b - c + 5 
+a + b - 6*c +12
+3*a - b - c -4
+
+3
+Gaussian-elimination
+25*a + 5*b + 1*c - 106.8
+64*a + 8*b + 1*c - 177.2
+144*a + 12*b + 1*c -279.2
+
+
+
+3
+Gaussian-elimination
 2*a + b + 4*c - 1
 a   + 2*b + 3*c - 1.5
 4*a  -1*b + 2*c - 2
-
-
-
-4
-Gaussian-elimination
-4*a + 6*b + 2*c - 2*d - 8
-2*a + 0*b + 5*c - 2*d - 4
--4*a - 3*b -5*c + 4*d - 1
-8*a +18*b -2*c + 3*d  -40
