@@ -1,4 +1,4 @@
-[a,b,method] = reader('C:\Files\git\Linear-Equation-Solver\fgetl.txt');
+[a,b,method,input] = reader('C:\Files\git\Linear-Equation-Solver\fgetl.txt');
 
 if strcmp(method,'Gaussian-elimination')
     dip('Gaussian-elimination')
@@ -13,4 +13,8 @@ end
 if strcmp(method,'LU decomposition')
     disp('LU decomposition')
     lu_decomposition(a,b)
+end
+if strcmp(method,'Gauss-Seidel')
+    disp('Gauss-Seidel')
+    gauss_seidel(a,b,input)
 end

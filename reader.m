@@ -1,4 +1,4 @@
-function [a,b,method] = reader(filename)
+function [a,b,method,input] = reader(filename)
 
 clc
 warning('off','symbolic:sym:sym:DeprecateExpressions')
@@ -16,7 +16,9 @@ iter = str2num(['uint8(',iter_s,')']);
 st_x = 'x^';
 ch = char(97:97+iter-1);
 
-method = fgetl(fid);    % if iterative will add one to iter for arguments-
+method = fgetl(fid);    % if iterative will add one to iter for arguments
+
+
 
 mat=[];
 a=[];
@@ -49,7 +51,6 @@ for counter = 1:iter
     
 end
 
-fclose(fid);
 
 for counter = 1:iter
 
@@ -61,7 +62,15 @@ b=-b;
 
 
 method;
-a
-b
+a;
+b;
+
+if strcmp(method,'Gauss-Seidel')
+    input_temp = fgetl(fid);
+    input = textscan(input_temp,'%f');
+    input =cell2mat(input);
+end
+
+fclose(fid);
 
 %%% END OF READ
