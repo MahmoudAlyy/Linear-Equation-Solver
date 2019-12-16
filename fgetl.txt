@@ -1,4 +1,26 @@
 3
+LU decomposition
+25*a + 5*b + 1*c - 106.8
+64*a + 8*b + 1*c - 177.2
+144*a + 12*b + 1*c -279.2
+
+3
+LU decomposition
+-1*a + 2.5*b +5*c
+-2*a + 9*b + 11*c
+4*a-22*b-20*c
+
+
+
+3
+LU decomposition
+3*a - 0.1*b - 0.2*c
+0.1*a + 7*b - 0.3*c
+0.3*a - 0.2*b + 10*c
+
+
+
+3
 Gaussian-Jordan
 a + b + 2*c - 8 
 -1*a + -2*b + 3*c - 1

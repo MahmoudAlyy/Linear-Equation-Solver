@@ -60,7 +60,8 @@ b;
 for i = 1:n
     s(i) = b(i)/a(i,i);
 end
-s
+
+s = s';
 
 
 

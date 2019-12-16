@@ -77,4 +77,4 @@ for i = n-1:-1:1
     s(i) = (b(i) - sum) / a(i,i);
 end
 
-s;
+s = s';
