@@ -30,12 +30,17 @@ end
 
 
 a;
+
+if a(k,k) == 0
+    error "division by zero"
+end
+    
   for i = k+1:n
     %
         fac_u = a(i,k)*1.0 ; 
         fac_d= a(k,k)*1.0 ;
         factor = fac_u / fac_d;
-        for j = k : n
+        for j = k : n    %% 1:n
             i;
             j;
             k;

@@ -61,7 +61,7 @@ b=-b;
 
 
 method;
-a;
-b;
+a
+b
 
 %%% END OF READ
