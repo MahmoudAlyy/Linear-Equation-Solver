@@ -1,6 +1,6 @@
 function [a,b,method,input] = reader(filename)
 
-clc
+%clc
 warning('off','symbolic:sym:sym:DeprecateExpressions')
 syms x
 %fid = fopen('fgetl.txt');
