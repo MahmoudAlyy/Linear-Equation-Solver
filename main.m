@@ -16,5 +16,5 @@ if strcmp(method,'LU decomposition')
 end
 if strcmp(method,'Gauss-Seidel')
     disp('Gauss-Seidel')
-    gauss_seidel(a,b,input)
+    gauss_seidel(a,b,input,50,0.00001)
 end

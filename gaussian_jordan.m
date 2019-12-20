@@ -1,5 +1,5 @@
-function [s] = gaussian_jordan(a,b)
-
+function [s,time] = gaussian_jordan(a,b)
+tic
 
 n = size(a);
 n = n(1);
@@ -62,6 +62,6 @@ for i = 1:n
 end
 
 s = s';
-
+time = toc;
 
 

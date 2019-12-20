@@ -1,6 +1,6 @@
-function [s] = gaussian_elimination(a,b)
+function [s,time] = gaussian_elimination(a,b)
 
-
+tic
 
 %%% FORWARD ELIMINATION
 n = size(a);
@@ -78,3 +78,4 @@ for i = n-1:-1:1
 end
 
 s = s';
+time = toc

@@ -79,12 +79,15 @@ b;
 %}    
     input_temp = fgetl(fid);
     class(input_temp);
-    if ( isa(input_temp,'double') && input_temp == -1 )
+    
+    if ( (isa(input_temp,'double') & input_temp == -1) | (isa(input_temp,'char') & isempty(input_temp))  )
+        disp 'end of file or string is empty'
         for i = 1:iter
         input = [input;0];
         end
     
- else
+    else
+    disp 'reading input'    
     input = textscan(input_temp,'%f');
     input =cell2mat(input);
 end

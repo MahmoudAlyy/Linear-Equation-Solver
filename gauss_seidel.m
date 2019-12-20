@@ -1,9 +1,7 @@
-function [x,it] = gauss_seidel(a,b,input)
-
+function [x,it,time] = gauss_seidel(a,b,input,iter,eps)
+tic 
 a;
 b;
-iter = 50;
-eps = 0.00001;
 x=input;
 old_x = input;
 error=[];
@@ -46,3 +44,5 @@ if converge
 end
 
 end
+
+time = toc;

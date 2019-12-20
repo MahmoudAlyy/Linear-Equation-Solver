@@ -199,7 +199,7 @@ function Read_Text_Callback(hObject, eventdata, handles)
 % hObject    handle to Read_Text (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
- x = get(handles.text_field,'String');%edit1 being Tag of ur edit box
+ x = get(handles.text_field,'String')%edit1 being Tag of ur edit box
  
  str = splitlines(x);
  n = size(str);
@@ -275,26 +275,34 @@ global method;
 global input;
 global solution;
 solution = string('');
+time_string = string('Execution time : ');
 
 %%% if no radio is chosen
 if  ( get(handles.radiobutton_ge,'Value') == 0 && get(handles.radiobutton_lu,'Value') == 0 && get(handles.radiobutton_gj,'Value') == 0 && get(handles.radiobutton_gs,'Value') == 0 )
 f = msgbox('Choose a method', 'Error','error');
-end
+else
 
 if get(handles.radiobutton_ge,'Value') == 1
 method = 'Gaussian-elimination'
+ge_s = string('Gaussian-elimination, ');
 
-gs_s = string('Gaussian-elimination');
-gs_s = gs_s + newline + mat2str(gaussian_elimination(a,b),7) + newline;
-solution  = solution + gs_s;
+[ge_sol,ge_time] = gaussian_elimination(a,b);
+ge_sol = mat2str(ge_sol,7);
+ge_time = mat2str(ge_time);
+ge_s = ge_s + time_string + ge_time + newline + ge_sol + newline;
+
+solution  = solution + ge_s;
 set(handles.output_text, 'String', solution);
 drawnow; % Needed only if this is in a fast loop.
 end
 
 if get(handles.radiobutton_lu,'Value') == 1
 method = 'LU decomposition'
-lu_s = string('LU decomposition');
-lu_s = lu_s + newline + mat2str(lu_decomposition(a,b),7) + newline;
+lu_s = string('LU decomposition, ');
+[lu_sol,lu_time] = lu_decomposition(a,b);
+lu_sol = mat2str(lu_sol,7);
+lu_time = mat2str(lu_time);
+lu_s = lu_s + time_string + lu_time + newline + lu_sol + newline;
 solution  = solution + lu_s;
 set(handles.output_text, 'String', solution);
 drawnow; % Needed only if this is in a fast loop.
@@ -302,8 +310,11 @@ end
 
 if get(handles.radiobutton_gj,'Value') == 1
 method = 'Gaussian-Jordan'
-gj_s = string('Gaussian-Jordan');
-gj_s = gj_s + newline + mat2str(gaussian_jordan(a,b),7) + newline;
+gj_s = string('Gaussian-Jordan, ');
+[gj_sol,gj_time] = gaussian_jordan(a,b);
+gj_sol = mat2str(gj_sol,7);
+gj_time = mat2str(gj_time);
+gj_s = gj_s + time_string + gj_time + newline + gj_sol + newline;
 solution  = solution + gj_s;
 set(handles.output_text, 'String', solution);
 drawnow;
@@ -311,20 +322,34 @@ drawnow;
 end 
 if get(handles.radiobutton_gs,'Value') == 1
 method = 'Gauss-Seidel'
-gs_s = string('Gauss-Seidel');
+iter = str2num(get(handles.max_iter_text,'String'));
+eps = str2num(get(handles.eps_text,'String'));
+
+
+
+gs_s = string('Gauss-Seidel, ');
 gs_it = string('Number of iteration');
 
-[gs_sol,gs_iter] = gauss_seidel(a,b,input);
+[gs_sol,gs_iter,gs_time] = gauss_seidel(a,b,input,iter,eps);
 
 gs_sol = mat2str(gs_sol,7);
 gs_iter = mat2str(gs_iter);
+gs_time = mat2str(gs_time);
 
-gs_s = gs_s + newline + gs_sol + newline;
+gs_s = gs_s + time_string + gs_time + newline + gs_sol + newline;
 gs_it = gs_it + newline + gs_iter + newline;
 
 solution  = solution + gs_s + gs_it;
 set(handles.output_text, 'String', solution);
 drawnow;
-    gauss_seidel(a,b,input)
+
+end
+
+%%% write to file
+fid2 = fopen('C:\Files\git\Linear-Equation-Solver\solution.txt','w');
+fprintf(fid2,solution);
+fclose(fid2);
+
+
 
 end

@@ -1,4 +1,5 @@
-function [s] = lu_decomposition(a,b)
+function [s,time] = lu_decomposition(a,b)
+tic
 mat = a ;
 l=[];
 
@@ -118,5 +119,6 @@ end
 
 
 s = s';
+time = toc;
 
 
