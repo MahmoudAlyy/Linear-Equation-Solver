@@ -1,10 +1,4 @@
-Gaussian-elimination, Execution time : 0.0003325
-[0.5833333;0.8333333;-0.25]
-LU decomposition, Execution time : 0.0018634
-[0.5833333;0.8333333;-0.25]
-Gaussian-Jordan, Execution time : 0.0005135
-[0.5833333;0.8333333;-0.25]
-Gauss-Seidel, Execution time : 0.0025912
-[-Inf;NaN;NaN]
+Gauss-Seidel, Execution time : 0.0063609
+[0 1 2 3 4 5 6 7 8 9 10]
 Number of iteration
-558
+10

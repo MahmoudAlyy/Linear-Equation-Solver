@@ -8,12 +8,14 @@ error=[];
 %x=[];
 n = size(a);
 n = n(1);
+approx = input';
 
 %for i = 1:n
 %x(i) = 0;
 %end
 
 for it = 1:iter
+    
 for i = 1:n
      
     sum=0;
@@ -29,6 +31,7 @@ for i = 1:n
 end
 old_x = x;
 x;
+approx = [approx;x'];
 error;
 %%% check for convergence
 converge = true;
@@ -44,5 +47,19 @@ if converge
 end
 
 end
-
 time = toc;
+
+%%%%%%%%
+
+approx;
+for xi = 1:n
+        y = approx(:,xi)
+        x = linspace(0,it,it+1);
+        figure;
+        plot(x,y)
+        grid
+    
+    
+end
+
+
