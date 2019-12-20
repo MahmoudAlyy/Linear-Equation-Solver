@@ -50,13 +50,12 @@ end
 time = toc;
 
 %%%%%%%%
-
 approx;
 for xi = 1:n
-        y = approx(:,xi)
-        x = linspace(0,it,it+1);
+        yp = approx(:,xi)
+        xp = linspace(0,it,it+1);
         figure;
-        plot(x,y)
+        plot(xp,yp)
         grid
     
     
