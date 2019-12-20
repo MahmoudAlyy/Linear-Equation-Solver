@@ -3,6 +3,7 @@ function [a,b,method,input] = reader(filename)
 %clc
 warning('off','symbolic:sym:sym:DeprecateExpressions')
 syms x
+input=[];
 %fid = fopen('fgetl.txt');
 fid = fopen(filename);
 
@@ -65,8 +66,25 @@ method;
 a;
 b;
 
-if strcmp(method,'Gauss-Seidel')
+%if strcmp(method,'Gauss-Seidel')
+    %{
+    if feof(fid)
+    disp 'end of file'
+    for i = 1:iter
+    input = [input;0];
+    end
+    end
+    
+    else
+%}    
     input_temp = fgetl(fid);
+    class(input_temp);
+    if ( isa(input_temp,'double') && input_temp == -1 )
+        for i = 1:iter
+        input = [input;0];
+        end
+    
+ else
     input = textscan(input_temp,'%f');
     input =cell2mat(input);
 end

@@ -1,4 +1,4 @@
-function [s] = gauss_seidel(a,b,input)
+function [x,it] = gauss_seidel(a,b,input)
 
 a;
 b;
@@ -46,4 +46,3 @@ if converge
 end
 
 end
-x
